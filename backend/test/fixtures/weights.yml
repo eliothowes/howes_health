@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 1.5
+  date_time: 2019-10-09 19:30:23
+  patient: one
+
+two:
+  value: 1.5
+  date_time: 2019-10-09 19:30:23
+  patient: two

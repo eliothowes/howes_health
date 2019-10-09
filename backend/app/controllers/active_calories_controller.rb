@@ -1,0 +1,2 @@
+class ActiveCaloriesController < ApplicationController
+end

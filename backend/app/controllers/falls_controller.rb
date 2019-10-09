@@ -1,0 +1,2 @@
+class FallsController < ApplicationController
+end
