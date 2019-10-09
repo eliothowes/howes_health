@@ -1,0 +1,2 @@
+class TempsController < ApplicationController
+end

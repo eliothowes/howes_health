@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_time: 2019-10-09 19:14:07
+  duration: 1
+  type: 
+  patient: one
+  clinician: one
+
+two:
+  date_time: 2019-10-09 19:14:07
+  duration: 1
+  type: 
+  patient: two
+  clinician: two

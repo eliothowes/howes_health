@@ -1,0 +1,2 @@
+class RespRatesController < ApplicationController
+end

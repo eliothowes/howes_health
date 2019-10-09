@@ -1,0 +1,2 @@
+class TimeStandingsController < ApplicationController
+end

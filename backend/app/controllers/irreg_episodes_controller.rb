@@ -1,0 +1,2 @@
+class IrregEpisodesController < ApplicationController
+end

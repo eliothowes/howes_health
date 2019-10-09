@@ -1,0 +1,2 @@
+class HeightsController < ApplicationController
+end

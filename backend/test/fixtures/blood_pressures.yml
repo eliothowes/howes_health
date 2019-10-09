@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  systolic_value: 1
+  diastolic_value: 1
+  date_time: 2019-10-09 19:20:28
+  patient: one
+
+two:
+  systolic_value: 1
+  diastolic_value: 1
+  date_time: 2019-10-09 19:20:28
+  patient: two

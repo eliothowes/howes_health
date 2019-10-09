@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+.App::after {
+  text-align: center;
+  background-image: url('https://howes-health.s3.eu-west-2.amazonaws.com/heartbeat.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50vmin;
+  content: "";
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+}
