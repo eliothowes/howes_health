@@ -1,14 +1,8 @@
 class CliniciansController < ApplicationController
     skip_before_action :authorized, only: [:signup]
 
-    def index
-        clinicians = Clinician.all
-        render json: clinicians
-    end
-
     def signup
         user = Clinician.create(user_params)
-
         if user.valid?
             token = encode_token(user_id: user.id)
             render json: { user: ClinicianSerializer.new(user), jwt: token }, status: :created

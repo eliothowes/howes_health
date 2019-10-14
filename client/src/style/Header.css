@@ -10,18 +10,67 @@
     width: 99%;
     display: flex;
     z-index: 1;
+    justify-content: space-between;
 }
 
+.account-links {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
 
 .signup-in-icon {
-    background-color: white;
-    height: 42px;
-    margin: 5px;
+    background-color: #C4C4C4;
+    height: 35px;
     border-radius: 25px;
 }
 
 .signout-icon {
-    background-color: white;
-    height: 42px;
-    margin: 5px;
+    background-color: #C4C4C4;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.nav-container {
+    align-items: center;
+    display: flex;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin: 0 30px
+}
+
+.nav-links p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0 10px;
+}
+
+.link-divider {
+    margin: 0;
+    border: 0.5px solid #FFFFFF;
+}
+
+.nav-divider {
+    margin: 0;
+    margin-right: 20px;
+    border: 0.5px solid #C4C4C4;
+}
+
+.widget-menu {
+    display: flex;
+    align-items: center;
+}
+
+.widget-menu-icon {
+    background-color: #C4C4C4;
+    height: 35px;
+    margin: 0px;
+    margin-right: 25px;
+    border-radius: 5px;
+    flex-direction: row;
 }

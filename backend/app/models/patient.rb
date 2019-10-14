@@ -18,4 +18,9 @@ class Patient < ApplicationRecord
     has_many :temps
     has_many :time_standings
     has_many :weights
+
+    def active_calories
+        ActiveCalorie.all.filter{|calories| calories.patient_id == self.id ? calories : nil}
+    end
+
 end
