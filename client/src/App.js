@@ -1,9 +1,10 @@
 import React from 'react';
-import './style/App.css';
 
 import Header from './containers/Header'
 import Main from './containers/Main'
 import Footer from './containers/Footer'
+
+import './style/App.css';
 
 const App = () => {
   return (

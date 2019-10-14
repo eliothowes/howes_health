@@ -14,29 +14,29 @@
 
 ### Patient Seeds ###
 5.times {
-    Clinician.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password_digest: '12345', specialty: 'GP') 
+    Clinician.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: '12345', specialty: 'GP') 
 }
 
 3.times {
-    Contact.create(date_time: `#{Faker::Date.between(from: 2.days.ago, to: Date.today)} #{rand(1..12)}:#{rand(0..60)}`, duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..5), clinician_id: rand(1..5))
+    Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..5), clinician_id: rand(1..5))
 }
 
 10.times {
-    HeartRate.create(value: rand(40..220), date_time: `#{Faker::Date.between(from: 10.days.ago, to: Date.today)} #{rand(1..12)}:#{rand(0..60)}`, patient_id: rand(1..5)) 
+    HeartRate.create(value: rand(40..220), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
 }
 
 10.times {
-    BloodPressure.create(systolic_value: rand(100..220), diastolic_value: rand(60..90), date_time: `#{Faker::Date.between(from: 10.days.ago, to: Date.today)} #{rand(1..12)}:#{rand(0..60)}`, patient_id: rand(1..5)) 
+    BloodPressure.create(systolic_value: rand(100..220), diastolic_value: rand(60..90), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
 }
 
 10.times {
-    O2Sat.create(value: rand(60..100), date_time: `#{Faker::Date.between(from: 10.days.ago, to: Date.today)} #{rand(1..12)}:#{rand(0..60)}`, patient_id: rand(1..5)) 
+    O2Sat.create(value: rand(60..100), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
 }
 
 10.times {
-    Temp.create(value: rand(35.5..38.5), date_time: `#{Faker::Date.between(from: 10.days.ago, to: Date.today)} #{rand(1..12)}:#{rand(0..60)}`, patient_id: rand(1..5))
+    Temp.create(value: rand(35.5..38.5), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5))
 }
 
 10.times {
-    RespRate.create(value: rand(8..18), date_time: `#{Faker::Date.between(from: 10.days.ago, to: Date.today)} #{rand(1..12)}:#{rand(0..60)}`, patient_id: rand(1..5)) 
+    RespRate.create(value: rand(8..18), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
 }
