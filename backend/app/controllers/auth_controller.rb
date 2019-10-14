@@ -7,7 +7,7 @@ class AuthController < ApplicationController
 
         if user && user.authenticate(user_login_params[:password])
             token = encode_token({ user_id: user.id })
-            render json: { user: ClinicianSerializer.new(user), jwt: token }, status: :accepted
+            render json: { clinician: ClinicianSerializer.new(user), jwt: token }, status: :accepted
         else
             render json: { error: 'Invalid login credentials' }, status: :unauthorized
         end
@@ -16,7 +16,7 @@ class AuthController < ApplicationController
     def validate
         user = current_user
         if user
-            render json: user
+            render json: {clinician: ClinicianSerializer.new(user)}
         else
             render json: { error: 'Invalid Token' }, status: 401
         end

@@ -19,14 +19,14 @@ const SignIn = props => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        // /////////// Need to do this next
         API.signIn({clinician: formInput})
             .then(data => {
                 if (data.error) {
                     throw Error(data.error)
                 } else {
-                    props.log_in(data.user)
+                    props.log_in(data.clinician.details)
                     localStorage.setItem('token', data.jwt)
+                    props.get_patients(data.clinician.patients)
                 }
             })
             .catch(error => alert(error))
