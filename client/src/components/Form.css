@@ -1,0 +1,135 @@
+/* .signup-form-container {
+    width: 45%;
+    height: 50%;    
+    background: #DEDEDE;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.form-title {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 3vmin;
+    line-height: 28px;
+    color: #8E8D8D;
+
+    padding-top: 4%;
+    align-items: left;
+    text-align: left;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+
+#form-input {
+    background: #FFFFFF;
+    border: 0.25px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 50%;
+    margin: 2%;
+}
+
+#form-label {
+    margin: 
+} */
+
+* {box-sizing: border-box}
+/* Full-width input fields */
+  input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 0.1px solid #000000;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.signup-form-container {
+  padding: 16px;
+  background: #DEDEDE;
+  opacity: 0.6;
+  border-radius: 10px;
+  text-align: left;
+}
+
+/* The Modal (background) */
+.signup-form.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: transparent;
+  padding-top: 65px;
+  padding-bottom: 10px;
+}
+
+/* Modal Content/Box */
+.signup-form {
+  background-color: #fefefe;
+  margin: 0 auto 0 auto;
+  /* border: 1px solid #888; */
+  width: 382px;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

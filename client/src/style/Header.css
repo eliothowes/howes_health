@@ -1,5 +1,5 @@
 .Header {
-    height: 7%;
+    height: 54px;
     background: #828282;
     opacity: 0.6;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -8,4 +8,20 @@
     top: 0.5%;
     position: absolute;
     width: 99%;
+    display: flex;
+    z-index: 1;
+}
+
+
+.signup-in-icon {
+    background-color: white;
+    height: 42px;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+.signout-icon {
+    background-color: white;
+    height: 42px;
+    margin: 5px;
 }

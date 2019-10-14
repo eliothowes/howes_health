@@ -1,3 +1,3 @@
 class ClinicianSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :email, :password_digest, :specialty
+  attributes :name, :username, :email, :specialty
 end
