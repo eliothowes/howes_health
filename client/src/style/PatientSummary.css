@@ -1,0 +1,9 @@
+.summary-card {
+    background: #E4E4E4;
+    border: solid grey 1px;
+    border-radius: 10px;
+    width: 180px;
+    height: 180px;
+    font-size: 0.75em;
+    margin: 18px 0 0 18px;
+}

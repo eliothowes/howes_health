@@ -1,0 +1,44 @@
+.widget {
+    background: #E4E4E4;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-type-container {
+    padding: 10px;
+}
+
+.widget-type {
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: #C4C4C4;
+}
+
+.dashboard-widget-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.close-btn-container {
+    padding: 10px;
+}
+
+.widget-close-btn {
+    font-weight: lighter;
+    margin: 10px;
+    padding: 0;
+    font-size: 18px;
+    color: #C4C4C4;
+}

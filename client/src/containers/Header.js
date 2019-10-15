@@ -2,13 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions'
 
-import useWidgetMenu from '../hooks/useWidgetMenu'
-
 import '../style/Header.css'
 
-const Header = ({ currentUser, log_out, get_patients }) => {
-
-    const {openWidgetMenu, closeWidgetMenu} = useWidgetMenu()
+const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displayWidgetMenu, openWidgetMenu, closeWidgetMenu }) => {
 
     const handleLogoutClick = () => {
         log_out()
@@ -16,12 +12,15 @@ const Header = ({ currentUser, log_out, get_patients }) => {
     }
 
     const handleWidgetMenuClick = () => {
+        displayWidgetMenu ? closeWidgetMenu() : openWidgetMenu()
         // openWidgetMenu()
     }
 
     const handleDiaryViewClick = () => {
-        get_patients()
+        deselect_patient()
     }
+
+    const currentPatientElement =  selectedPatient ? <span>{`Current Patient: ${selectedPatient.patient_details.name}`}</span> : null
 
     return (
         <div className='Header'>
@@ -36,10 +35,11 @@ const Header = ({ currentUser, log_out, get_patients }) => {
                     <p onClick={handleDiaryViewClick} >Diary View</p>
                     <hr width="1" size="35" className='link-divider'></hr>
                     <p >Patient View</p>
+                    {currentPatientElement}
                 </div>
                 <hr width="2" size="50" className='nav-divider'></hr>
-                <div className='widget-menu'>
-                    {<img className='widget-menu-icon' src="https://howes-health.s3.eu-west-2.amazonaws.com/menu-square-button-dark.png" alt="Logout Icon" onClick={handleWidgetMenuClick} />}
+                <div className='widget-menu-container'>
+                    {<img className='widget-menu-icon' src="https://howes-health.s3.eu-west-2.amazonaws.com/menu-square-button-dark.png" alt="Logout Icon" onClick={selectedPatient && handleWidgetMenuClick} />}
                 </div>
             </div>
         </div>
@@ -48,7 +48,8 @@ const Header = ({ currentUser, log_out, get_patients }) => {
 
 
 const mapStateToProps = state => ({
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    selectedPatient: state.patients.find(patient => patient.id === state.selectedPatient)
 })
 
 

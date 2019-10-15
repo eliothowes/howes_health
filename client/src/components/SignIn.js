@@ -4,7 +4,7 @@ import * as actions from '../redux/actions'
 
 import API from '../API'
 
-import './SignIn.css'
+import '../style/SignIn.css'
 
 import useFormInput from '../hooks/useFormInput'
 
@@ -44,7 +44,7 @@ const SignIn = props => {
                     <label>Password</label>
                     <input type="password" name="password" id="password" value={formInput.password} onChange={handleFormChange} required />
 
-                    <input type="submit" value="Sign Up"/>
+                    <input type="submit" value="Sign In"/>
                 </div>
             </div>
         </form>

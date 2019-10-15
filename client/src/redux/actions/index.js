@@ -1,7 +1,11 @@
 import {
     LOG_IN,
     LOG_OUT,
-    GET_PATIENTS
+    GET_PATIENTS,
+    SELECTED_PATIENT,
+    DESELECT_PATIENT,
+    CLICK_WIDGET,
+    DISPLAY_WIDGET
 } from './types'
 
 // import API from '../../API'
@@ -16,12 +20,9 @@ export function log_out () {
 
 export const get_patients = data => ({type: GET_PATIENTS, payload: data})
 
-// export const get_patients = () => {
-//     return dispatch => {
-//         API.get_patients()
-//             .then(data => {debugger
+export const selected_patient = patientId => ({type: SELECTED_PATIENT, payload: patientId})
+export const deselect_patient = () => ({type: DESELECT_PATIENT})
 
-//                 dispatch({type: GET_PATIENTS, payload: data})})
-//             .catch(error => console.log(error.message))
-//     }
-// }
+export const widget_click = widgetName => ({type: CLICK_WIDGET, payload: widgetName})
+
+export const display_widget_in_dashboard = widgetName => ({type: DISPLAY_WIDGET, payload: widgetName})
