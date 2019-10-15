@@ -6,7 +6,7 @@
     border-radius: 10px;
     margin: 0 0.5%;
     bottom: 0.5%;
-    position: absolute;
+    position: fixed;
     width: 99%;
     z-index: 1;
 }

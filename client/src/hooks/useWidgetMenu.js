@@ -6,7 +6,7 @@ const useWidgetMenu = () => {
     const openWidgetMenu = () => setSisplayWidgetMenu(true)
     const closeWidgetMenu = () => setSisplayWidgetMenu(false)
 
-    return {displayWidgetMenu, openWidgetMenu, closeWidgetMenu}
+    return [displayWidgetMenu, openWidgetMenu, closeWidgetMenu]
 }
 
 export default useWidgetMenu

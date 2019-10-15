@@ -1,5 +1,10 @@
 class ClinicianSerializer < ActiveModel::Serializer
   attributes :details, :patients
+  # has_many :patients
+  
+  # class PatientSerializer < ActiveModel::Serializer
+  #   attributes :id, :name
+  # end
 
   def details
     {
@@ -11,7 +16,8 @@ class ClinicianSerializer < ActiveModel::Serializer
 
   def patients
     self.object.patients.map do |patient|
-      {patient_details: 
+      {id: patient.id,
+        patient_details: 
         {
           name: patient.name,
           dob: patient.dob,

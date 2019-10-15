@@ -19,11 +19,16 @@ n = 1
 }
 
 50.times {
-    Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..50), clinician_id: rand(1..5))
+    Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..5), clinician_id: 1)
+    # Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..50), clinician_id: rand(1..5))
 }
 
+# 100.times {
+#     HeartRate.create(value: rand(40..220), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+# }
+
 100.times {
-    HeartRate.create(value: rand(40..220), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    HeartRate.create(value: rand(40..220), date_time: '2019-10-16 12:30:00', patient_id: rand(1..5)) 
 }
 
 100.times {

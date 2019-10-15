@@ -4,13 +4,18 @@ import Header from './containers/Header'
 import Main from './containers/Main'
 import Footer from './containers/Footer'
 
+import useWidgetMenu from './hooks/useWidgetMenu'
+
 import './style/App.css';
 
 const App = () => {
+
+  const [displayWidgetMenu, openWidgetMenu, closeWidgetMenu] = useWidgetMenu()
+  
   return (
     <div className='App'>
-        <Header />
-        <Main />
+        <Header displayWidgetMenu={displayWidgetMenu} openWidgetMenu={openWidgetMenu} closeWidgetMenu={closeWidgetMenu} />
+        <Main displayWidgetMenu={displayWidgetMenu} />
         <Footer />
     </div>
   );

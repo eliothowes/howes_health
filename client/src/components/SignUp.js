@@ -1,7 +1,7 @@
 import React from 'react'
 import API from '../API'
 import useFormtInput from '../hooks/useFormInput'
-import './Form.css'
+import '../style/Form.css'
 
 const SignUp = () => {
 
