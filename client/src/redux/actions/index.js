@@ -21,7 +21,7 @@ export const get_patients = data => ({type: GET_PATIENTS, payload: data})
 
 export const selected_patient = patientId => ({type: SELECTED_PATIENT, payload: patientId})
 export const deselect_patient = () => ({type: DESELECT_PATIENT})
-export const update_patient_health_data = (id, data) => ({type: UPDATE_HEALTH_DATA, payload: {id, data}})
+export const update_patient_health_data = (id, data, category, identifier) => ({type: UPDATE_HEALTH_DATA, payload: {id, data, category, identifier}})
 
 export const widget_click = widgetName => ({type: CLICK_WIDGET, payload: widgetName})
 
