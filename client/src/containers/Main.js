@@ -45,7 +45,7 @@ const Main = (props) => {
       {props.currentUser === '' ? < SignIn /> : null}
       {/* <SignUp /> */}
       {props.currentUser && !props.selectedPatient ? < DiaryView /> : < PatientView />}
-      {props.displayWidgetMenu && < WidgetMenu />}
+      {props.displayWidgetMenu && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
     </div>
   ) 
 }

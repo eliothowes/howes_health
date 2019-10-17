@@ -4,10 +4,12 @@ import PatientSummary from '../components/PatientSummary'
 
 import DashboardWidget from '../components/widgets/DashboardWidget'
 
+import '../style/PatientView.css'
+
 const PatientView = ({ patient, widgets }) => {
 
     return (
-        <div>
+        <div className='dashboard-container'>
             {patient && <PatientSummary patient={patient}/>}
             {
                 widgets.map(widget => <DashboardWidget key={widget.name} widget={widget} patient={patient} />)

@@ -40,7 +40,7 @@ n = 1
 }
 
 100.times {
-    Temp.create(value: rand(35.5..38.5), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5))
+    Temp.create(value: rand(35.5..38.5).round(2), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5))
 }
 
 100.times {
@@ -56,7 +56,7 @@ n = 1
 }
 
 100.times {
-    BloodGlucose.create(value: rand(4.0..9.0), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    BloodGlucose.create(value: rand(4.0..9.0).round(2), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
 }
 
 100.times {
@@ -87,8 +87,8 @@ n = 1
     TimeStanding.create(value: rand(0..720), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
 }
 
-Patient.all.each_with_index{|p, index| Height.create(value: rand(161.9..175.3), date_time: '2016-06-22 19:10:25', patient_id: index)}
-Patient.all.each_with_index{|p, index| Weight.create(value: rand(69.0..84.0), date_time: '2016-06-22 19:10:25', patient_id: index)}
+Patient.all.each_with_index{|p, index| Height.create(value: rand(161.9..175.3).round(2), date_time: '2016-06-22 19:10:25', patient_id: index)}
+Patient.all.each_with_index{|p, index| Weight.create(value: rand(69.0..84.0).round(2), date_time: '2016-06-22 19:10:25', patient_id: index)}
 
 
 
