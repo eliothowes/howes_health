@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className='App'>
         <Header displayWidgetMenu={displayWidgetMenu} openWidgetMenu={openWidgetMenu} closeWidgetMenu={closeWidgetMenu} />
-        <Main displayWidgetMenu={displayWidgetMenu} />
+        <Main displayWidgetMenu={displayWidgetMenu} closeWidgetMenu={closeWidgetMenu} />
         <Footer />
     </div>
   );

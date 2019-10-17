@@ -8,12 +8,12 @@ import '../style/WidgetMenu.css'
 
 
 
-const WidgetMenu = ({widgets}) => {
+const WidgetMenu = ({widgets, closeWidgetMenu}) => {
 
     return (
         <div className='widget-menu'>
             {
-                widgets.map(widget => <Widget key={widget.name} widget={widget} />)
+                widgets.map(widget => <Widget key={widget.name} widget={widget} closeWidgetMenu={closeWidgetMenu} />)
             }
         </div>
     )
