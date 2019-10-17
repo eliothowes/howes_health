@@ -20,12 +20,11 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
         event.preventDefault()
         API.createHealthData(widget.identifier, {health_data: {patient_id: patient.id, value: formInput.newData}})
         .then(data => {
-            setShowForm(!showForm)
-            let heart_rate = {id: data.heart_rate.id, value: data.heart_rate.value, date_time: data.heart_rate.date_time }
-            let patient_id = data.heart_rate.patient_id
-            update_patient_health_data(patient_id, heart_rate)
+            setShowForm(!showForm)           
+            let health_data = parseHealthData(data)
+            let patient_id = data[`${widget.identifier}`].patient_id
+            update_patient_health_data(patient_id, health_data, widget.category, widget.identifier)
         })
-        setShowForm(!showForm)
         resetForm()
     }
 
@@ -34,18 +33,33 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
         display_widget_in_dashboard(widgetName)
     }
 
-    const data = patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0] ? 
-                    patient.patient_health_data[`${widget.category}`][`${widget.identifier}`] === 'heart_rate' ? 
-                        `${patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].systolic} / ${patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].diastolic}`
-                        : patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value 
-                            : null
+    const createHealthData = () => {
+        if (patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0]) {
+            if (!patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value) {
+                return `${patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].systolic_value} / ${patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].diastolic_value}`
+            } else {
+                return patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value
+            }
+        }
+    }
+
+    const parseHealthData = (data) => {
+        if (Object.keys(data)[0] === 'blood_pressures') { 
+            return {id: data.blood_pressures.id, systolic_value: data.blood_pressures.systolic_value, diastolic_value: data.blood_pressures.diastolic_value, date_time: data.blood_pressures.date_time }
+        } else {
+            return {id: data[`${widget.identifier}`].id, value: data[`${widget.identifier}`].value, date_time: data[`${widget.identifier}`].date_time }
+        }
+    }
 
 
     const form = () => {
         return (
             <form onSubmit={handleFormSubmit} className='data-form'>
-                        <input type="number" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={data} required />
-                        {/* <input type="submit" value="Submit Data"/> */}
+                        {!patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value ?
+                        <input type="text" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} required />
+                        : <input type="number" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} required />
+                        }
+                    {/* <input type="submit" value="Submit Data"/> */}
             </form>
         )
     }
@@ -53,7 +67,7 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
     const displayData = () => {
         return (
             <>
-                <h3 className='data-value'>{data ? data : `No`}</h3>
+                <h3 className='data-value'>{createHealthData() ? createHealthData() : `No`}</h3>
                 {/* <h3 className='data-units'>{data ? widget.units : `Data`}</h3> */}
             </>
         )
@@ -72,7 +86,7 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
             </div>
             <div className='data-container'>
                 {showForm ? form() : displayData()}
-                <h3 className='data-units'>{data ? widget.units : `Data`}</h3>
+                <h3 className='data-units'>{createHealthData() ? widget.units : `Data`}</h3>
             </div>
             <div className='dash-footer'>
                 <div className='normal-values-container'>

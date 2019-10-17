@@ -15,9 +15,9 @@ const patientsReducer = (state = [], action) => {
                     return {...patient, 
                                 patient_health_data: {
                                     ...patient.patient_health_data,
-                                    vital_signs: {
-                                        ...patient.patient_health_data.vital_signs,
-                                        heart_rate: [action.payload.data, ...patient.patient_health_data.vital_signs.heart_rate]
+                                    [action.payload.category]: {
+                                        ...patient.patient_health_data[action.payload.category],
+                                        [action.payload.identifier]: [action.payload.data, ...patient.patient_health_data[action.payload.category][action.payload.identifier]]
                             }}} 
                 } else {
                     return patient
