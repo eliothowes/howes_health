@@ -2,9 +2,9 @@ import React from 'react'
 
 import '../style/PatientSummary.css'
 
-const PatientSummary = ({ patient }) => {
+const PatientSummary = ({ patient, contact }) => {
 
-    const apptTime = patient.patient_contacts[0].date_time.split(/\d{4}-\d{2}-\d{2}T/)[1].split(/\:\d{2}\./)[0]
+    const apptTime = contact.date_time.split(' ')[1]
     const year = patient.patient_details.dob.split('-')[0]
     const month = patient.patient_details.dob.split('-')[1]
     const day = patient.patient_details.dob.split('-')[2]
@@ -20,7 +20,7 @@ const PatientSummary = ({ patient }) => {
                     <p className='summary-appt-time'>{apptTime}</p>
                 </div>
             </div>
-            <div className='data-container'>
+            <div className='summary-data-container'>
                 <ul className='patient-details'>
                     <li>Name: {`${patient.patient_details.name}   (${patient.patient_details.gender})`}</li>
                     <li>DOB: {`${day}-${month}-${year}`}</li>

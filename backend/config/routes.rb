@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/resp_rates', to: 'resp_rates#create'
   post '/temps', to: 'temps#create'
   post '/o2_sats', to: 'o2_sats#create'
-  post '/irreg_episodes', to: 'irreg_episode#create'
+  post '/irreg_episodes', to: 'irreg_episodes#create'
   post '/height', to: 'heights#create'
   post '/weight', to: 'weights#create'
   post '/active_calories', to: 'active_calories#create'

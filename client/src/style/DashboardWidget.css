@@ -50,7 +50,7 @@
 }
 
 .data-container {
-    height: 50%;
+    height: 40%;
 }
 
 .data-value {
@@ -68,12 +68,12 @@
 }
 
 .dash-footer {
-    height: 25%;
+    height: 35%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 13px;
-    padding-top: 15px;
+    margin: 20px 13px;
 }
 
 .normal-values-container {
@@ -83,11 +83,18 @@
     font-weight: lighter;
 }
 
-.edit-btn-container {
-
+.data-btn-container {
+    justify-content: inherit;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .data-edit-btn {
+    height: 30px;
+}
+
+.data-history-btn {
     height: 30px;
 }
 

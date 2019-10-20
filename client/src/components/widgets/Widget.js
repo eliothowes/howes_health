@@ -12,7 +12,7 @@ const Widget = ({ widget, widget_click,  display_widget_in_dashboard, closeWidge
 
     return <img
         src={widget.image}
-        alt={`${widget.name} image`}
+        alt={`${widget.name}`}
         className='widget-icon'
         onClick={event => handleClick(widget.name)}
     />

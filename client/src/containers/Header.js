@@ -13,11 +13,11 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
 
     const handleWidgetMenuClick = () => {
         displayWidgetMenu ? closeWidgetMenu() : openWidgetMenu()
-        // openWidgetMenu()
     }
 
     const handleDiaryViewClick = () => {
         deselect_patient()
+        closeWidgetMenu()
     }
 
     const currentPatientElement =  selectedPatient ? <span>{`Current Patient: ${selectedPatient.patient_details.name}`}</span> : null

@@ -43,6 +43,10 @@
     font-size: 12.5px;
 }
 
+.summary-data-container {
+    height: 50%;
+}
+
 .info-footer {
     width: 100%;
     height: 25%;

@@ -10,7 +10,6 @@ const patientsReducer = (state = [], action) => {
             return action.payload
         case UPDATE_HEALTH_DATA:
             return state.map(patient => {
-                // Get rid of hard coding
                 if (patient.id === action.payload.id) {
                     return {...patient, 
                                 patient_health_data: {

@@ -19,7 +19,7 @@ n = 1
 }
 
 50.times {
-    Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..5), clinician_id: 1)
+    Contact.create(date_time: Faker::Time.between_dates(from: Date.today - 20, to: Date.today + 20, period: :all), duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..5), clinician_id: 1)
     # Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..50), clinician_id: rand(1..5))
 }
 
@@ -28,67 +28,67 @@ n = 1
 # }
 
 100.times {
-    HeartRate.create(value: rand(40..220), date_time: '2019-10-16 12:30:00', patient_id: rand(1..5)) 
+    HeartRate.create(value: rand(40..220), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    BloodPressure.create(systolic_value: rand(100..220), diastolic_value: rand(60..90), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    BloodPressure.create(systolic_value: rand(100..220), diastolic_value: rand(60..90), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    O2Sat.create(value: rand(60..100), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    O2Sat.create(value: rand(60..100), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    Temp.create(value: rand(35.5..38.5).round(2), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5))
+    Temp.create(value: rand(35.5..38.5).round(2), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5))
 }
 
 100.times {
-    RespRate.create(value: rand(8..18), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    RespRate.create(value: rand(8..18), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    ActiveCalorie.create(value: rand(1200..4800), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    ActiveCalorie.create(value: rand(1200..4800), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    CalorieIntake.create(value: rand(1600..3000), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    CalorieIntake.create(value: rand(1600..3000), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    BloodGlucose.create(value: rand(4.0..9.0).round(2), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    BloodGlucose.create(value: rand(4.0..9.0).round(2), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    ExerciseDuration.create(value: rand(0..180), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    ExerciseDuration.create(value: rand(0..180), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 10.times {
-    Fall.create(value: rand(0..5), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    Fall.create(value: rand(0..5), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 50.times {
-    FlightsClimbed.create(value: rand(0..12), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    FlightsClimbed.create(value: rand(0..12), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 10.times {
-    IrregEpisode.create(value: rand(0..5), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    IrregEpisode.create(value: rand(0..5), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 15.times {
-    MindfulMinute.create(value: rand(0..60), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    MindfulMinute.create(value: rand(0..60), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    Step.create(value: rand(0..15000), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    Step.create(value: rand(0..15000), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
 100.times {
-    TimeStanding.create(value: rand(0..720), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
+    TimeStanding.create(value: rand(0..720), date_time: Faker::Time.between_dates(from: Date.today - 60, to: Date.today - 1, period: :all), patient_id: rand(1..5)) 
 }
 
-Patient.all.each_with_index{|p, index| Height.create(value: rand(161.9..175.3).round(2), date_time: '2016-06-22 19:10:25', patient_id: index)}
-Patient.all.each_with_index{|p, index| Weight.create(value: rand(69.0..84.0).round(2), date_time: '2016-06-22 19:10:25', patient_id: index)}
+Patient.all.each_with_index{|p, index| Height.create(value: rand(161.9..175.3).round(2), date_time: Faker::Time.between_dates(from: Date.today - 10, to: Date.today - 1, period: :all), patient_id: index)}
+Patient.all.each_with_index{|p, index| Weight.create(value: rand(69.0..84.0).round(2), date_time: Faker::Time.between_dates(from: Date.today - 10, to: Date.today - 1, period: :all), patient_id: index)}
 
 
 

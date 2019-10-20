@@ -24,7 +24,6 @@ const SignIn = props => {
                 if (data.error) {
                     throw Error(data.error)
                 } else {
-                    debugger
                     props.log_in(data.clinician.details)
                     localStorage.setItem('token', data.jwt)
                     props.get_patients(data.clinician.patients)
