@@ -7,12 +7,23 @@ import useDate from '../hooks/useDate'
 import '../style/DiaryView.css'
 
 
-const DiaryView = ({ patients, currentUser, selected_patient}) => {
+const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
 
-    const date = useDate()
+    const [date, dateComparison] = useDate()
 
-    const handleClick = (id) => {
-        selected_patient(id)
+    const handleClick = (patientId, contactId) => {
+        selected_patient(patientId)
+        select_current_contact(contactId)
+    }
+
+    const todays_appointments = (patientContacts) => {
+        return patientContacts.filter(contact => contact.date_time.split(' ')[0] === dateComparison())
+    } 
+
+    const todays_patients = patients => {
+        if (patients !== undefined) {
+            return patients.filter(patient => todays_appointments(patient.patient_contacts).length > 0 )
+        }
     }
 
     return (
@@ -23,23 +34,28 @@ const DiaryView = ({ patients, currentUser, selected_patient}) => {
                 </div>
                 <div className='diary-container'>
                     <ul className='diary'>
-                        {patients.map(patient => {
-                            return (
-                                <li className='patient-details-card' onClick={event => handleClick(patient.id)}>
-                                    {/* NEED TO SORT OUT DISPLAY OF TIME!!! */}
-                                    <p className='appt-time'>{patient.patient_contacts[0].date_time}</p>
-                                    {/* NEED TO SORT OUT DISPLAY OF TIME!!! */}
-                                    <ul className='patient-details'>
-                                        <li>{`${patient.patient_details.name} (${patient.patient_details.gender})`}</li>
-                                        <li>{patient.patient_details.dob}</li>
-                                        <li>{patient.patient_details.hosp_num}</li>
-                                        <li>{patient.patient_details.nhs_num}</li>
-                                        <li>{patient.patient_details.address}</li>
-                                        <li>{patient.patient_details.telephone}</li>
-                                    </ul>
-                                </li>
-                            )
-                        })}
+                    { todays_patients(patients) !== undefined || null || [] ?
+                        todays_patients(patients).map(patient => {
+                            return todays_appointments(patient.patient_contacts).map(contact => {
+                                return (
+                                    <li className='patient-details-card' onClick={event => handleClick(patient.id, contact.id)}>
+                                        
+                                        <p className='appt-time'>{contact.date_time.split(' ')[1]}</p>
+                                        
+                                        <ul className='patient-details'>
+                                            <li>{`${patient.patient_details.name} (${patient.patient_details.gender})`}</li>
+                                            <li>{patient.patient_details.dob}</li>
+                                            <li>{patient.patient_details.hosp_num}</li>
+                                            <li>{patient.patient_details.nhs_num}</li>
+                                            <li>{patient.patient_details.address}</li>
+                                            <li>{patient.patient_details.telephone}</li>
+                                        </ul>
+                                    </li>
+                                )
+                            })
+                        })
+                        : <li>No patient's today!</li>
+                    }
                     </ul>
                 </div>
             </div>
@@ -49,7 +65,6 @@ const DiaryView = ({ patients, currentUser, selected_patient}) => {
 
 const mapstateToProps = state => ({
     patients: state.patients,
-    currentUser: state.currentUser
 })
 
 export default connect(mapstateToProps, actions)(DiaryView)

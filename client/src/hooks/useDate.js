@@ -11,7 +11,11 @@ const useDate = () => {
         return () => clearInterval(interval)
     }, [])
 
-    return date
+    const dateComparison = () => {
+        return new Date(date).toLocaleDateString().split('/').reverse().join('-')
+    }
+
+    return [date, dateComparison]
 }
 
 export default useDate

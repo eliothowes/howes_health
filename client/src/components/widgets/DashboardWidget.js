@@ -7,14 +7,16 @@ import useFormInput from '../../hooks/useFormInput'
 import '../../style/DashboardWidget.css'
 import API from '../../API'
 
-const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, patient, update_patient_health_data }) => {
+const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, patient, update_patient_health_data, setShowHistory, set_history }) => {
 
     const formFields = {
-        newData: '',
+        newData: ''
     }
 
+    const healthData = {widget: widget, healthData: patient.patient_health_data[`${widget.category}`][`${widget.identifier}`]}
+
     const [formInput, handleFormChange, resetForm] = useFormInput(formFields)
-    const  [showForm, setShowForm] = useState(false)
+    const [showForm, setShowForm] = useState(false)
 
     const handleFormSubmit = event => {
         event.preventDefault()
@@ -35,7 +37,7 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
 
     const createHealthData = () => {
         if (patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0]) {
-            if (!patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value) {
+            if (widget.identifier === 'blood_pressures') {
                 return `${patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].systolic_value} / ${patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].diastolic_value}`
             } else {
                 return patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value
@@ -55,11 +57,11 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
     const form = () => {
         return (
             <form onSubmit={handleFormSubmit} className='data-form'>
-                        {!patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value ?
+                        {patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0] === undefined || !patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value ?
                         <input type="text" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} required />
-                        : <input type="number" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} required />
+                        : <input type="number" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} step=".01" required />
                         }
-                    {/* <input type="submit" value="Submit Data"/> */}
+                        {/* <input type="submit" value="Submit Data"/> */}
             </form>
         )
     }
@@ -68,9 +70,13 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
         return (
             <>
                 <h3 className='data-value'>{createHealthData() ? createHealthData() : `No`}</h3>
-                {/* <h3 className='data-units'>{data ? widget.units : `Data`}</h3> */}
             </>
         )
+    }
+
+    const handleHistoryClick = () => {
+        setShowHistory(true)
+        set_history(healthData)
     }
 
     return (
@@ -92,8 +98,9 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
                 <div className='normal-values-container'>
                     {widget.norm_val && <span className='norm-vals'>Normal Values: {`${widget.norm_val} ${widget.units}`}</span>}
                 </div>
-                <div className='edit-btn-container'>
-                    <img src='https://howes-health.s3.eu-west-2.amazonaws.com/edit.png' className='data-edit-btn' onClick={() => setShowForm(!showForm)}/>
+                <div className='data-btn-container'>
+                    <img src="https://howes-health.s3.eu-west-2.amazonaws.com/history.png" className='data-history-btn' alt="history-btn" onClick={handleHistoryClick}/>
+                    <img src='https://howes-health.s3.eu-west-2.amazonaws.com/edit.png' className='data-edit-btn' alt="edit-btn" onClick={() => setShowForm(!showForm)}/>
                 </div>
             </div>
         </div>
