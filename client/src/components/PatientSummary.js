@@ -23,8 +23,8 @@ const PatientSummary = ({ patient, contact }) => {
                 <ul className='patient-details'>
                     <li>Name: {`${patient.patient_details.name}   (${patient.patient_details.gender})`}</li>
                     <li>DOB: {`${day}-${month}-${year}`}</li>
-                    <li>Hosp No:{patient.patient_details.hosp_num}</li>
-                    <li>NHS No:{patient.patient_details.nhs_num}</li>
+                    <li>Hosp No: {patient.patient_details.hosp_num}</li>
+                    <li>NHS No: {patient.patient_details.nhs_num}</li>
                     <li>Address: {patient.patient_details.address}</li>
                     <li>Telephone: {patient.patient_details.telephone}</li>
                 </ul>

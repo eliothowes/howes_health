@@ -26,7 +26,6 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
             let health_data = parseHealthData(data)
             let patient_id = data[`${widget.identifier}`].patient_id
             update_patient_health_data(patient_id, health_data, widget.category, widget.identifier)
-            debugger
         })
         resetForm()
     }

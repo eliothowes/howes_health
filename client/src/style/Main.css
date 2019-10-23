@@ -7,24 +7,4 @@
     overflow: scroll;
 }
 
-.clinician-details-container {
-    border-radius: 10px;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: auto;
-    opacity: 0.4;
-}
-
-.clinician-details {
-    list-style-type: none;
-    margin: 0;
-    margin-left: 8px;
-    padding: 0;
-    text-align: left;
-    color: #C4C4C4;
-    font-size: 22px;
-}
-
-
 
