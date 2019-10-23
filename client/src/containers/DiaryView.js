@@ -9,7 +9,7 @@ import '../style/DiaryView.css'
 
 const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
 
-    const [date, dateComparison] = useDate()
+    const {date, dateComparison} = useDate()
 
     const handleClick = (patientId, contactId) => {
         selected_patient(patientId)
@@ -17,7 +17,8 @@ const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
     }
 
     const todays_appointments = (patientContacts) => {
-        return patientContacts.filter(contact => contact.date_time.split(' ')[0] === dateComparison())
+        return patientContacts.filter(contact => contact.date_time.split(' ')[0] !== dateComparison())
+        // return patientContacts.filter(contact => contact.date_time.split(' ')[0] === dateComparison())
     } 
 
     const todays_patients = patients => {

@@ -15,7 +15,6 @@ const PatientSummary = ({ patient, contact }) => {
                 <div className='avatar-container'>
                     <img src='https://howes-health.s3.eu-west-2.amazonaws.com/user.png' alt='avatar' className='avatar'/>
                 </div>
-            {/* NEED TO SORT OUT DISPLAY OF TIME!!! */}
                 <div className='appt-time-container'>
                     <p className='summary-appt-time'>{apptTime}</p>
                 </div>

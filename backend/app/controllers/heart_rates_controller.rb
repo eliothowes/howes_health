@@ -3,7 +3,7 @@ class HeartRatesController < ApplicationController
 
     def create
         heart_rate = HeartRate.new(heart_rate_params)
-        heart_rate.date_time = DateTime.now
+        heart_rate.date_time = DateTime.now + 1.hour
         heart_rate.save
         if heart_rate.valid?
             render json: {heart_rate: HeartRateSerializer.new(heart_rate)}, status: :created

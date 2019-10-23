@@ -26,6 +26,7 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
             let health_data = parseHealthData(data)
             let patient_id = data[`${widget.identifier}`].patient_id
             update_patient_health_data(patient_id, health_data, widget.category, widget.identifier)
+            debugger
         })
         resetForm()
     }
@@ -58,8 +59,8 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
         return (
             <form onSubmit={handleFormSubmit} className='data-form'>
                         {patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0] === undefined || !patient.patient_health_data[`${widget.category}`][`${widget.identifier}`][0].value ?
-                        <input type="text" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} required />
-                        : <input type="number" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData} step=".01" required />
+                        <input type="text" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData()} required />
+                        : <input type="number" name='newData' className='data-form-input' value={formInput.newData} onChange={handleFormChange} placeholder={createHealthData()} step=".01" required />
                         }
                         {/* <input type="submit" value="Submit Data"/> */}
             </form>

@@ -23,7 +23,7 @@ hr {
 }
 
 /* Set a style for all buttons */
-button {
+btn {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -34,7 +34,7 @@ button {
   opacity: 0.9;
 }
 
-button:hover {
+btn:hover {
   opacity:1;
 }
 
