@@ -9,6 +9,7 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
     const handleLogoutClick = () => {
         log_out()
         localStorage.removeItem('token')
+        deselect_patient()
     }
 
     const handleWidgetMenuClick = () => {
@@ -39,7 +40,7 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
                 </div>
                 <hr width="2" size="50" className='nav-divider'></hr>
                 <div className='widget-menu-container'>
-                    {<img className='widget-menu-icon' src="https://howes-health.s3.eu-west-2.amazonaws.com/menu-square-button-dark.png" alt="Logout Icon" onClick={selectedPatient && handleWidgetMenuClick} />}
+                    {<img className='widget-menu-icon' src="https://howes-health.s3.eu-west-2.amazonaws.com/menu-square-button-dark.png" alt="Widget Menu Icon" onClick={selectedPatient && handleWidgetMenuClick} />}
                 </div>
             </div>
         </div>

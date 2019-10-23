@@ -15,7 +15,12 @@ const useDate = () => {
         return new Date(date).toLocaleDateString().split('/').reverse().join('-')
     }
 
-    return [date, dateComparison]
+    const currentYear = () => date.split(' ')[3]
+    const currentMonth = () => (new Date().getMonth() + 1).toString()
+    const currentDay = () => date.split(' ')[2]
+    const monToSun = () => date.split(' ')[0]
+
+    return {date, dateComparison, currentYear, currentMonth, currentDay, monToSun}
 }
 
 export default useDate

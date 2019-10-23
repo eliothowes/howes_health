@@ -29,7 +29,20 @@ const Main = (props) => {
             alert(error)
           })
     }
+    // eslint-disable-next-line
   }, [])
+
+  const renderMain = () => {
+    if (props.currentUser === '') {
+      return < SignIn />
+    } else {
+      if (props.currentUser && !props.selectedPatient) {
+        return < DiaryView />
+      } else {
+        return < PatientView />
+      }
+    }
+  }
 
   return (
     <div className='Main'>
@@ -42,9 +55,7 @@ const Main = (props) => {
         </ul>
       </div>
       }
-      {props.currentUser === '' ? < SignIn /> : null}
-      {/* <SignUp /> */}
-      {props.currentUser && !props.selectedPatient ? < DiaryView /> : < PatientView />}
+      {renderMain()}
       {props.displayWidgetMenu && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
     </div>
   ) 

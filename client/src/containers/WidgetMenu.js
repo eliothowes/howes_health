@@ -7,7 +7,6 @@ import Widget from '../components/widgets/Widget'
 import '../style/WidgetMenu.css'
 
 
-
 const WidgetMenu = ({widgets, closeWidgetMenu}) => {
 
     return (
