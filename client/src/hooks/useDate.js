@@ -20,7 +20,15 @@ const useDate = () => {
     const currentDay = () => date.split(' ')[2]
     const monToSun = () => date.split(' ')[0]
 
-    return {date, dateComparison, currentYear, currentMonth, currentDay, monToSun}
+    const formatDate = date => {
+        const day = date.split('-')[2]
+        const month = date.split('-')[1]
+        const year = date.split('-')[0]
+        return `${day}-${month}-${year}`
+    }
+    
+
+    return {date, dateComparison, currentYear, currentMonth, currentDay, monToSun, formatDate}
 }
 
 export default useDate

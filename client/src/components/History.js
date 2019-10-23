@@ -14,17 +14,11 @@ const History = ({setShowHistory, history}) => {
     const {currentYear, currentMonth, currentDay} = useDate()
     const [showType, setShowType] = useState('day')
 
-
     const thisYearsData = () => history.healthData.filter(data => data.date_time.split('-')[0] === currentYear())
     const thisMonthsData = () => thisYearsData().filter(data => data.date_time.split('-')[1] === currentMonth())
     const todaysData = () => thisMonthsData().filter(data => data.date_time.split('T')[0].split('-')[2] === currentDay())
 
-    // const selectedDataForBP = () => {
-
-    // }
-
     const selectedData = () => {
-        debugger
         if (showType === 'year' ) {
             const year = []
             const months = {'1': 'January', '2': 'February', '3': 'March', '4': 'April', '5': 'May', '6': 'June', 7: 'July', '8': 'August', '9': 'September', '10': 'October', '11': 'November', '12': 'December'}
@@ -157,18 +151,20 @@ const History = ({setShowHistory, history}) => {
             return week
         } else {
             const sortedData = todaysData().sort((a, b) => a.date_time.localeCompare(b.date_time))
-            // Sort data output for ==='blood_pressures'
-            return sortedData.map(data =>  ({...data, date_time: data.date_time.split('T')[1].split('.')[0]}))
+            if (history.widget.identifier === 'blood_pressures' && !sortedData.value) {
+                return sortedData.map(data => ({date_time: data.date_time.split('T')[1].split('.')[0], value: {systolic: data.systolic_value, diastolic: data.diastolic_value}}))
+            } else {
+                return sortedData.map(data => ({...data, date_time: data.date_time.split('T')[1].split('.')[0]}))
+            }
         }
     }
 
     const dataToDisplay = () => {
-        debugger
         if (history.widget.identifier === 'blood_pressures') {
             const systolic = []
             const diastolic = []
+            // eslint-disable-next-line
             selectedData().map(data => {
-                debugger
                 systolic.push({x: `${data.date_time}`, y: data.value.systolic})
                 diastolic.push({x: `${data.date_time}`, y: data.value.diastolic})
             })
@@ -235,7 +231,7 @@ const History = ({setShowHistory, history}) => {
             <div className='history-header'>
                 <div className='history-icon-type-container'>
                     <h5 className='history-type'>{history.widget.type}</h5>
-                    <img src={history.widget.image} alt='' className='history-type-icon'/>
+                    <img src={history.widget.image} alt='widget icon' className='history-type-icon'/>
                 </div>
                 <div className='history-close-btn-container'>
                     <span onClick={() => setShowHistory(false)} className='history-close-btn' >X</span>
@@ -245,7 +241,7 @@ const History = ({setShowHistory, history}) => {
                 <div className='history-graph'>
                     <Graph data={dataToDisplay()} widget={history.widget} xAxis={xAxis}/>
                 </div>
-                <div className='history-metadata' >
+                <div className='history-metadata'>
                     {displayMeta()}
                 </div>
             </div>

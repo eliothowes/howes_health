@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions' 
 
@@ -22,6 +22,7 @@ const SignIn = props => {
         API.signIn({clinician: formInput})
             .then(data => {
                 if (data.error) {
+                    props.setShowLoading(false)
                     throw Error(data.error)
                 } else {
                     props.log_in(data.clinician.details)
@@ -31,6 +32,7 @@ const SignIn = props => {
             })
             .catch(error => alert(error))
         resetForm()
+        props.setShowLoading(true)
     }
     
     return (

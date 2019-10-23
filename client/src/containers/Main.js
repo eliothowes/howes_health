@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions'
 
@@ -7,12 +7,15 @@ import SignIn from '../components/SignIn'
 import DiaryView from './DiaryView'
 import PatientView from './PatientView'
 import WidgetMenu from './WidgetMenu'
+import Loading from '../components/Loading'
 
 import API from '../API'
 
 import '../style/Main.css'
 
 const Main = (props) => {
+
+  const [showLoading, setShowLoading] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
@@ -32,12 +35,13 @@ const Main = (props) => {
     // eslint-disable-next-line
   }, [])
 
+
   const renderMain = () => {
     if (props.currentUser === '') {
-      return < SignIn />
+        return < SignIn setShowLoading={setShowLoading} showLoading={showLoading} />
     } else {
       if (props.currentUser && !props.selectedPatient) {
-        return < DiaryView />
+        return < DiaryView setShowLoading={setShowLoading} showLoading={showLoading}/>
       } else {
         return < PatientView />
       }
@@ -46,15 +50,6 @@ const Main = (props) => {
 
   return (
     <div className='Main'>
-      { props.currentUser &&
-      <div className='clinician-details-container'>
-        <ul className='clinician-details' >
-          <li>Clinician: {props.currentUser.name}</li>
-          <li>Username: {props.currentUser.username}</li>
-          <li>Specialty: {props.currentUser.specialty}</li>
-        </ul>
-      </div>
-      }
       {renderMain()}
       {props.displayWidgetMenu && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
     </div>
@@ -63,7 +58,8 @@ const Main = (props) => {
 
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
-    selectedPatient: state.patients.find(patient => patient.id === state.selectedPatient)
+    selectedPatient: state.patients.find(patient => patient.id === state.selectedPatient),
+    patients: state.patients
 })
 
 export default connect(mapStateToProps, actions)(Main)

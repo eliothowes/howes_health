@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions'
 
 import useDate from '../hooks/useDate'
 
 import '../style/DiaryView.css'
+import AppointmentCard from '../components/AppointmentCard'
 
 
-const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
+const DiaryView = ({ patients, selected_patient, select_current_contact, setShowLoading}) => {
 
     const {date, dateComparison} = useDate()
+
+    useEffect(() => {
+        setShowLoading(false)
+    }, [])
 
     const handleClick = (patientId, contactId) => {
         selected_patient(patientId)
@@ -17,8 +22,8 @@ const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
     }
 
     const todays_appointments = (patientContacts) => {
-        return patientContacts.filter(contact => contact.date_time.split(' ')[0] !== dateComparison())
-        // return patientContacts.filter(contact => contact.date_time.split(' ')[0] === dateComparison())
+        // return patientContacts.filter(contact => contact.date_time.split(' ')[0] !== dateComparison())
+        return patientContacts.filter(contact => contact.date_time.split(' ')[0] === dateComparison())
     } 
 
     const todays_patients = patients => {
@@ -39,18 +44,8 @@ const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
                         todays_patients(patients).map(patient => {
                             return todays_appointments(patient.patient_contacts).map(contact => {
                                 return (
-                                    <li className='patient-details-card' onClick={event => handleClick(patient.id, contact.id)}>
-                                        
-                                        <p className='appt-time'>{contact.date_time.split(' ')[1]}</p>
-                                        
-                                        <ul className='patient-details'>
-                                            <li>{`${patient.patient_details.name} (${patient.patient_details.gender})`}</li>
-                                            <li>{patient.patient_details.dob}</li>
-                                            <li>{patient.patient_details.hosp_num}</li>
-                                            <li>{patient.patient_details.nhs_num}</li>
-                                            <li>{patient.patient_details.address}</li>
-                                            <li>{patient.patient_details.telephone}</li>
-                                        </ul>
+                                    <li key={patient.id} className='patient-details-card' onClick={event => handleClick(patient.id, contact.id)}>
+                                        <AppointmentCard contact={contact} patient={patient}/>
                                     </li>
                                 )
                             })
@@ -65,7 +60,7 @@ const DiaryView = ({ patients, selected_patient, select_current_contact}) => {
 }
 
 const mapstateToProps = state => ({
-    patients: state.patients,
+    patients: state.patients
 })
 
 export default connect(mapstateToProps, actions)(DiaryView)
