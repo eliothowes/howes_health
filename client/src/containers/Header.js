@@ -4,9 +4,11 @@ import * as actions from '../redux/actions'
 
 import '../style/Header.css'
 
-const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displayWidgetMenu, openWidgetMenu, closeWidgetMenu }) => {
+const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displayWidgetMenu, openWidgetMenu, closeWidgetMenu, close_all_widgets, stop_loading }) => {
 
     const handleLogoutClick = () => {
+        close_all_widgets()
+        stop_loading()
         log_out()
         localStorage.removeItem('token')
         deselect_patient()
@@ -17,6 +19,7 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
     }
 
     const handleDiaryViewClick = () => {
+        close_all_widgets()
         deselect_patient()
         closeWidgetMenu()
     }

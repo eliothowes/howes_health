@@ -6,6 +6,7 @@ import getWidgetsReducer from './widgetReducer'
 import dashboardReducer from './dashboardReducer'
 import contactsReducer from './contactsReducer'
 import historyReducer from './historyReducer'
+import loadingReducer from './loadingReducer'
 
 
 export default combineReducers({
@@ -15,6 +16,7 @@ export default combineReducers({
     widgets: getWidgetsReducer,
     dashboardWidgets: dashboardReducer,
     currentContact: contactsReducer,
-    history: historyReducer
+    history: historyReducer,
+    loading: loadingReducer
 })
 

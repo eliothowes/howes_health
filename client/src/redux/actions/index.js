@@ -10,7 +10,9 @@ import {
     GET_TODAYS_PATIENTS,
     SELECT_CURRENT_CONTACT,
     DESELECT_CURRENT_CONTACT,
-    SET_HISTORY
+    SET_HISTORY,
+    LOADING,
+    CLOSE_WIDGETS
 } from './types'
 
 export function log_in (user) {
@@ -36,3 +38,8 @@ export const select_current_contact = contactId => ({type: SELECT_CURRENT_CONTAC
 export const deselect_current_contact = contactId => ({type: DESELECT_CURRENT_CONTACT, payload: contactId})
 
 export const set_history = healthData => ({type: SET_HISTORY, payload: healthData})
+
+export const start_loading = () => ({type: LOADING, payload: true})
+export const stop_loading = () => ({type: LOADING, payload: false})
+
+export const close_all_widgets = () => ({type: CLOSE_WIDGETS})
