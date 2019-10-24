@@ -18,6 +18,8 @@ const History = ({setShowHistory, history}) => {
     const thisMonthsData = () => thisYearsData().filter(data => data.date_time.split('-')[1] === currentMonth())
     const todaysData = () => thisMonthsData().filter(data => data.date_time.split('T')[0].split('-')[2] === currentDay())
 
+    const dateNow = moment()
+
     const selectedData = () => {
         if (showType === 'year' ) {
             const year = []
@@ -225,6 +227,18 @@ const History = ({setShowHistory, history}) => {
         }
     }
 
+    const title = () => {
+        if (showType === 'year' ) {
+            return dateNow.format('YYYY')
+        } else if (showType === 'month' ) {
+            return dateNow.format('MMMM')
+        } else if (showType === 'week' ) {
+            return `Week ${dateNow.startOf('isoweek').format('DD-MM-YYYY')} - ${dateNow.endOf('isoweek').format('DD-MM-YYYY')}`
+        } else {
+            return  'Today'
+        }
+    }
+
     return (
         <div className='history-container'>
             <div className='history-content'>
@@ -238,6 +252,9 @@ const History = ({setShowHistory, history}) => {
                 </div>
             </div>
             <div className='history-data-container'>
+                <div className='history-title'>
+                    {title()}
+                </div>
                 <div className='history-graph'>
                     <Graph data={dataToDisplay()} widget={history.widget} xAxis={xAxis}/>
                 </div>

@@ -34,7 +34,7 @@ const PatientSummary = ({ patient, contact }) => {
                     <h4 >ALERTS</h4>
                 </div>
                 <div className='alerts'>
-                    <p>Alerts will go here</p>
+                    <p>This patient has no alerts!</p>
                 </div>
             </div>
         </div>

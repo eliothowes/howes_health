@@ -21,7 +21,13 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
         closeWidgetMenu()
     }
 
-    const currentPatientElement =  selectedPatient ? <span>{`Current Patient: ${selectedPatient.patient_details.name}`}</span> : null
+    const currentPatientElement = () => {
+        if (currentUser) {
+            return selectedPatient ? <span>{`Current Patient: ${selectedPatient.patient_details.name}`}</span> : <span>Current Patient: No patient selected</span>
+        } else {
+            return null
+        }
+    }  
 
     return (
         <div className='Header'>
@@ -33,14 +39,18 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
             </div>
             <div className='nav-container' >
                 <div className='nav-links' >
-                    <p onClick={handleDiaryViewClick} >Diary View</p>
+                    {selectedPatient ? 
+                    <>
+                    <p className='clinic-list-link' onClick={handleDiaryViewClick} >Return to Clinic List</p>
                     <hr width="1" size="35" className='link-divider'></hr>
-                    <p >Patient View</p>
-                    {currentPatientElement}
+                    </>
+                    : null
+                    }
+                    {currentPatientElement()}
                 </div>
-                <hr width="2" size="50" className='nav-divider'></hr>
+                {/* <hr width="2" size="50" className='nav-divider'></hr> */}
                 <div className='widget-menu-container'>
-                    {<img className='widget-menu-icon' src="https://howes-health.s3.eu-west-2.amazonaws.com/menu-square-button-dark.png" alt="Widget Menu Icon" onClick={selectedPatient && handleWidgetMenuClick} />}
+                    {/* {<img className='widget-menu-icon' src="https://howes-health.s3.eu-west-2.amazonaws.com/menu-square-button-dark.png" alt="Widget Menu Icon" onClick={selectedPatient && handleWidgetMenuClick} />} */}
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+// import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions'
 
@@ -12,9 +13,9 @@ const DiaryView = ({ patients, selected_patient, select_current_contact, setShow
 
     const {date, dateComparison} = useDate()
 
-    useEffect(() => {
-        setShowLoading(false)
-    }, [])
+    // useEffect(() => {
+    //     setShowLoading(false)
+    // }, [])
 
     const handleClick = (patientId, contactId) => {
         selected_patient(patientId)
@@ -44,7 +45,7 @@ const DiaryView = ({ patients, selected_patient, select_current_contact, setShow
                         todays_patients(patients).map(patient => {
                             return todays_appointments(patient.patient_contacts).map(contact => {
                                 return (
-                                    <li key={patient.id} className='patient-details-card' onClick={event => handleClick(patient.id, contact.id)}>
+                                    <li key={contact.id} className='patient-details-card' onClick={event => handleClick(patient.id, contact.id)}>
                                         <AppointmentCard contact={contact} patient={patient}/>
                                     </li>
                                 )

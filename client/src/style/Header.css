@@ -29,6 +29,11 @@
     background-color: #C4C4C4;
     height: 30px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.signout-icon:hover {
+    background-color: white;
 }
 
 .nav-container {
@@ -53,6 +58,7 @@
 .link-divider {
     margin: 0;
     border: 0.5px solid #FFFFFF;
+    margin-right: 8px;
 }
 
 .nav-divider {
@@ -73,4 +79,13 @@
     margin-right: 25px;
     border-radius: 5px;
     flex-direction: row;
+}
+
+.clinic-list-link:hover {
+    text-decoration: underline;
+}
+
+.clinic-list-link {
+    font-weight: lighter;
+    cursor: pointer;
 }

@@ -11,9 +11,13 @@ const WidgetMenu = ({widgets, closeWidgetMenu}) => {
 
     return (
         <div className='widget-menu'>
+            <img src="https://howes-health.s3.eu-west-2.amazonaws.com/up-arrow.png" alt="" className='arrow'/>
+            <div className='widget-contents'>
             {
                 widgets.map(widget => <Widget key={widget.name} widget={widget} closeWidgetMenu={closeWidgetMenu} />)
             }
+            </div>
+            <img src="https://howes-health.s3.eu-west-2.amazonaws.com/down-arrow.png" alt="" className='arrow'/>
         </div>
     )
 }
