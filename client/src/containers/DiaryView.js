@@ -1,5 +1,5 @@
-import React from 'react'
-// import React, { useEffect } from 'react'
+// import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions'
 
@@ -9,13 +9,13 @@ import '../style/DiaryView.css'
 import AppointmentCard from '../components/AppointmentCard'
 
 
-const DiaryView = ({ patients, selected_patient, select_current_contact, setShowLoading}) => {
+const DiaryView = ({ patients, selected_patient, select_current_contact, stop_loading}) => {
 
     const {date, dateComparison} = useDate()
 
-    // useEffect(() => {
-    //     setShowLoading(false)
-    // }, [])
+    useEffect(() => {
+        stop_loading()
+    }, [])
 
     const handleClick = (patientId, contactId) => {
         selected_patient(patientId)

@@ -19,6 +19,7 @@ const SignIn = props => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
+        props.start_loading()
         API.signIn({clinician: formInput})
             .then(data => {
                 if (data.error) {

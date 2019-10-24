@@ -1,5 +1,6 @@
 import {
-    DISPLAY_WIDGET
+    DISPLAY_WIDGET,
+    CLOSE_WIDGETS
   } from '../actions/types'
   
   const widgets = [
@@ -27,6 +28,8 @@ const dashboardReducer = (state = widgets, action) => {
     switch (action.type) {
         case DISPLAY_WIDGET:
             return state.map(widget => widget.name === action.payload ? {...widget, enabled: !widget.enabled} : widget )
+        case CLOSE_WIDGETS:
+            return state.map(widget => ({...widget, enabled: false}))
         default:
             return state
     }

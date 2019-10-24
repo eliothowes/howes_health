@@ -7,7 +7,7 @@ import SignIn from '../components/SignIn'
 import DiaryView from './DiaryView'
 import PatientView from './PatientView'
 import WidgetMenu from './WidgetMenu'
-// import Loading from '../components/Loading'
+import Loading from '../components/Loading'
 
 import API from '../API'
 
@@ -18,6 +18,7 @@ const Main = (props) => {
   const [showLoading, setShowLoading] = useState(false)
 
   useEffect(() => {
+    props.start_loading()
     if (localStorage.getItem('token') !== null) {
         API.validate()
           .then(data => {
@@ -37,19 +38,16 @@ const Main = (props) => {
 
 
   const renderMain = () => {
-    if (props.currentUser === '') {
-        return < SignIn setShowLoading={setShowLoading} showLoading={showLoading} />
-    } else {
-      if (props.currentUser && !props.selectedPatient) {
-        return < DiaryView setShowLoading={setShowLoading} showLoading={showLoading}/>
-      } else {
-        return < PatientView />
-      }
-    }
+    if (props.currentUser === '' && !props.loading) return <SignIn setShowLoading={setShowLoading} showLoading={showLoading} />
+
+    if (props.currentUser && !props.selectedPatient) return <DiaryView setShowLoading={setShowLoading} showLoading={showLoading}/>
+    
+    return <PatientView />
   }
 
   return (
     <div className='Main'>
+      { props.loading && <Loading /> }
       {renderMain()}
       {props.selectedPatient && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
     </div>
@@ -59,7 +57,8 @@ const Main = (props) => {
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
     selectedPatient: state.patients.find(patient => patient.id === state.selectedPatient),
-    patients: state.patients
+    patients: state.patients,
+    loading: state.loading
 })
 
 export default connect(mapStateToProps, actions)(Main)
