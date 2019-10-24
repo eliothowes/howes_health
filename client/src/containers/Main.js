@@ -7,7 +7,7 @@ import SignIn from '../components/SignIn'
 import DiaryView from './DiaryView'
 import PatientView from './PatientView'
 import WidgetMenu from './WidgetMenu'
-import Loading from '../components/Loading'
+// import Loading from '../components/Loading'
 
 import API from '../API'
 
@@ -51,7 +51,7 @@ const Main = (props) => {
   return (
     <div className='Main'>
       {renderMain()}
-      {props.displayWidgetMenu && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
+      {props.selectedPatient && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
     </div>
   ) 
 }

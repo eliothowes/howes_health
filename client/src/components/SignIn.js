@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions' 
 
@@ -40,13 +40,13 @@ const SignIn = props => {
             <div className='signin-form-container' >
                 <div className='signin-form-inner' >
                     <h3>Sign In</h3>
-                    <label>Username</label>
-                    <input type="text" name='username' id='username' value={formInput.username} onChange={handleFormChange} required />
+                    {/* <label>Username</label> */}
+                    <input type="text" name='username' id='username' placeholder='Username' value={formInput.username} onChange={handleFormChange} required />
 
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" value={formInput.password} onChange={handleFormChange} required />
+                    {/* <label>Password</label> */}
+                    <input type="password" name="password" id="password" placeholder='Password' value={formInput.password} onChange={handleFormChange} required />
 
-                    <input type="submit" value="Sign In"/>
+                    <input type="submit" value="Sign In" className='btn'/>
                 </div>
             </div>
         </form>

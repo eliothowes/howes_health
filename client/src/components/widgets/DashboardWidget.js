@@ -31,7 +31,7 @@ const DashboardWidget = ({ widget, widget_click,  display_widget_in_dashboard, p
     }
 
     const handleClick = (widgetName) => {
-        widget_click(widgetName)
+        // widget_click(widgetName)
         display_widget_in_dashboard(widgetName)
     }
 
