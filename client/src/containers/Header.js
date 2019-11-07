@@ -4,7 +4,7 @@ import * as actions from '../redux/actions'
 
 import '../style/Header.css'
 
-const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displayWidgetMenu, openWidgetMenu, closeWidgetMenu, close_all_widgets, stop_loading }) => {
+const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, close_all_widgets, stop_loading }) => {
 
     const handleLogoutClick = () => {
         close_all_widgets()
@@ -14,14 +14,9 @@ const Header = ({ currentUser, log_out, selectedPatient, deselect_patient, displ
         deselect_patient()
     }
 
-    const handleWidgetMenuClick = () => {
-        displayWidgetMenu ? closeWidgetMenu() : openWidgetMenu()
-    }
-
     const handleDiaryViewClick = () => {
         close_all_widgets()
         deselect_patient()
-        closeWidgetMenu()
     }
 
     const currentPatientElement = () => {

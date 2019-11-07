@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../redux/actions'
 
@@ -14,12 +14,11 @@ import API from '../API'
 import '../style/Main.css'
 
 const Main = (props) => {
-
-  const [showLoading, setShowLoading] = useState(false)
-
+ 
   useEffect(() => {
-    props.start_loading()
+    props.stop_loading()
     if (localStorage.getItem('token') !== null) {
+      props.start_loading()
         API.validate()
           .then(data => {
             if (data.error) {
@@ -36,18 +35,20 @@ const Main = (props) => {
     // eslint-disable-next-line
   }, [])
 
+ 
+
 
   const renderMain = () => {
-    if (props.currentUser === '' && !props.loading) return <SignIn setShowLoading={setShowLoading} showLoading={showLoading} />
+    if (props.currentUser === '' && !props.loading) return <SignIn />
 
-    if (props.currentUser && !props.selectedPatient) return <DiaryView setShowLoading={setShowLoading} showLoading={showLoading}/>
+    if (props.currentUser && !props.selectedPatient) return <DiaryView />
     
     return <PatientView />
   }
 
   return (
     <div className='Main'>
-      { props.loading && <Loading /> }
+      {props.loading && < Loading />}
       {renderMain()}
       {props.selectedPatient && < WidgetMenu closeWidgetMenu={props.closeWidgetMenu} />}
     </div>
