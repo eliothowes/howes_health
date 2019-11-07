@@ -4,7 +4,7 @@
     width: 300px;
     height: 300px;
     font-size: 0.75em;
-    margin: 18px;
+    margin: 18px 0 0 18px;
     display: flex;
     flex-direction: column;
 }

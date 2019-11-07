@@ -15,7 +15,7 @@ const DiaryView = ({ patients, selected_patient, select_current_contact, stop_lo
 
     useEffect(() => {
         stop_loading()
-    }, [])
+    })
 
     const handleClick = (patientId, contactId) => {
         selected_patient(patientId)

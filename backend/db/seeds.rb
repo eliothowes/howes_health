@@ -23,9 +23,9 @@ n = 1
 #     # Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..50), clinician_id: rand(1..5))
 # }
 
-Contact.create(date_time: '2019-10-24 14:30:00', duration: 30, contact_type: 'GP Consultation', patient_id: 1, clinician_id: 1)
-Contact.create(date_time: '2019-10-24 15:00:00', duration: 30, contact_type: 'GP Consultation', patient_id: 2, clinician_id: 1)
-Contact.create(date_time: '2019-10-24 15:30:00', duration: 30, contact_type: 'GP Consultation', patient_id: 3, clinician_id: 1)
+Contact.create(date_time: '2019-11-06 14:30:00', duration: 30, contact_type: 'GP Consultation', patient_id: 1, clinician_id: 1)
+Contact.create(date_time: '2019-11-06 15:00:00', duration: 30, contact_type: 'GP Consultation', patient_id: 2, clinician_id: 1)
+Contact.create(date_time: '2019-11-06 15:30:00', duration: 30, contact_type: 'GP Consultation', patient_id: 3, clinician_id: 1)
 
 # 100.times {
 #     HeartRate.create(value: rand(40..220), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
