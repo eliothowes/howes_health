@@ -12,11 +12,11 @@ In the near future I will create a small React Native application that will enab
  
 ## Screenshots and Demo
 ### Screenshots
-<iframe src="https://giphy.com/embed/PnIWlVfihzPIKjOXi3" width="480" height="256" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/PnIWlVfihzPIKjOXi3">via GIPHY</a></p>
+![Screenshots of Howes Health Application](https://media.giphy.com/media/PnIWlVfihzPIKjOXi3/giphy.gif)
 
 ### Demo
 <a href="https://youtu.be/GLRgLABFo7A" target="_blank"><img src="https://img.youtube.com/vi/GLRgLABFo7A/0.jpg" 
-alt="Screenshot of Howes Health Application" width="240" height="180" border="10" /></a>
+alt="Video Demonstration of Howes Health Application" width="240" height="180" border="10" /></a>
 
 ## Tech/framework used
 <b>Built with</b>
