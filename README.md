@@ -20,13 +20,12 @@ alt="Screenshot of Howes Health Application" width="240" height="180" border="10
 - React.js (Redux/Hooks)
 
 ## Installation
-### Clone this repository
+### Clone the repository
 ```bash
 $ git clone https://github.com/eliothowes1090/howes_health.git
 ```
 
 ### Backend Setup
-#### Go into the repository
 ```bash
 $ cd backend
 $ bundle install
@@ -34,21 +33,26 @@ $ rails db:create db:migrate db:seed
 $ rails s
 ```
 
-## Frontend Setup
-### Go into the repository
+### Frontend Setup
 ```bash
 $ cd client
 # Install dependencies
 $ npm install
 ```
 
-## Run the app
+### Run the app
 ```bash
 $ npm start
-```
-### If you see the following: 'Would you like to run the app on another port instead?' select 'yes'
 
-## Other setup
+? Something is already running on port 3000. Probably:
+  puma 3.12.1 (tcp://localhost:3000) [backend]   (pid 49917)
+  in /Users/eliothowes/Development/mod_5/howes_health/backend
+
+Would you like to run the app on another port instead? (Y/n) 
+## Select 'Y'
+```
+
+### Other setup
 
 A few things to know about the seed data. The contacts (appointments) are hard coded to the current date so if you log in the day after you have seeded the database you will not see any patients. To fix this run the following command:
 
