@@ -36,21 +36,23 @@ $ rails s
 ### Frontend Setup
 ```bash
 $ cd client
-# Install dependencies
 $ npm install
 ```
 
 ### Run the app
 ```bash
 $ npm start
+```
 
+#### If you see the following:
+```
 ? Something is already running on port 3000. Probably:
   puma 3.12.1 (tcp://localhost:3000) [backend]   (pid 49917)
   in /Users/eliothowes/Development/mod_5/howes_health/backend
 
 Would you like to run the app on another port instead? (Y/n) 
-## Select 'Y'
 ```
+#### Select 'Y'
 
 ### Other setup
 
