@@ -16,7 +16,7 @@ In the near future I will create a small React Native application that will enab
 
 ### Demo
 <a href="https://youtu.be/GLRgLABFo7A" target="_blank"><img src="https://img.youtube.com/vi/GLRgLABFo7A/0.jpg" 
-alt="Video Demonstration of Howes Health Application" width="240" height="180" border="10" /></a>
+alt="Video Demonstration of Howes Health Application" width="400" height="300" border="10" /></a>
 
 ## Tech/framework used
 <b>Built with</b>
