@@ -23,6 +23,7 @@ In the near future I will create a small React Native application that will enab
 - React.js (Redux/Hooks)
 
 ## Installation
+From your command line:
 ### Clone the repository
 ```bash
 $ git clone https://github.com/eliothowes1090/howes_health.git
