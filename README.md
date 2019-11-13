@@ -12,7 +12,7 @@ In the near future I will create a small React Native application that will enab
  
 ## Screenshots and Demo
 ### Screenshots
-![Screenshots of Howes Health Application](https://media.giphy.com/media/PnIWlVfihzPIKjOXi3/giphy.gif)
+![Screenshots of Howes Health Application](https://media.giphy.com/media/YoVyzeLGVTdJEpLqwR/giphy.gif)
 
 ### Demo
 <a href="https://youtu.be/GLRgLABFo7A" target="_blank"><img src="https://img.youtube.com/vi/GLRgLABFo7A/0.jpg" 
