@@ -13,19 +13,21 @@ n = 1
     Patient.create(name: Faker::Name.name, dob: Faker::Date.birthday(min_age: 21, max_age: 90), gender: Faker::Gender.binary_type, telephone: Faker::PhoneNumber.phone_number, address: Faker::Address.full_address, hosp_num: Faker::Number.number(digits: 10), nhs_num: Faker::NationalHealthService.british_number) 
 }
 
-### Patient Seeds ###
-3.times {
-    Clinician.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: '12345', specialty: 'GP') 
-}
+### Clinican Seeds ###
+# 3.times {
+#     Clinician.create(name: Faker::Name.name, username: Faker::Internet.username, email: Faker::Internet.email, password: '12345', specialty: 'GP') 
+# }
+
+Clinician.create(name: 'Test User', username: 'TestUser', email: Faker::Internet.email, password: '12345', specialty: 'GP')
 
 # 50.times {
 #     Contact.create(date_time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today + 5, period: :all), duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..5), clinician_id: 1)
 #     # Contact.create(date_time: '2016-06-22 19:10:25', duration: 30, contact_type: 'GP Consultation', patient_id: rand(1..50), clinician_id: rand(1..5))
 # }
 
-Contact.create(date_time: '2019-11-06 14:30:00', duration: 30, contact_type: 'GP Consultation', patient_id: 1, clinician_id: 1)
-Contact.create(date_time: '2019-11-06 15:00:00', duration: 30, contact_type: 'GP Consultation', patient_id: 2, clinician_id: 1)
-Contact.create(date_time: '2019-11-06 15:30:00', duration: 30, contact_type: 'GP Consultation', patient_id: 3, clinician_id: 1)
+Contact.create(date_time: Faker::Time.between_dates(from: Date.today, to: Date.today, period: :morning), duration: 30, contact_type: 'GP Consultation', patient_id: 1, clinician_id: 1)
+Contact.create(date_time: Faker::Time.between_dates(from: Date.today, to: Date.today, period: :morning), duration: 30, contact_type: 'GP Consultation', patient_id: 2, clinician_id: 1)
+Contact.create(date_time: Faker::Time.between_dates(from: Date.today, to: Date.today, period: :morning), duration: 30, contact_type: 'GP Consultation', patient_id: 3, clinician_id: 1)
 
 # 100.times {
 #     HeartRate.create(value: rand(40..220), date_time: '2016-06-22 19:10:25', patient_id: rand(1..5)) 
