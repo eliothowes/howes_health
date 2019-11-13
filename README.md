@@ -1,97 +1,48 @@
-# howes_health
+# Howes Health
+A unique, web based, clinical dashboard to allow healthcare professionals to integrate wearable health tech into their clinical contacts
 
-# README Ruby
+## Motivation
+One of the biggest areas of change and focus in modern healthcare is the adoption and integration of digital technology. Having spent many years working in different healthcare settings I was amazed at how behind the health industry was in its use of digital technology and lack of available data from health professionals.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Every day we collect hundreds if not thousands of pieces of health data about ourselves through out mobile devices and wearable health tech but we don't really utilise this data, let alone our healthcare clinicians.
 
-Things you may want to cover:
+My motiviation for designing Howes Health was to bridge the gap between the data we collect each day and utilisation of this in a healthcare setting.
 
-* Ruby version
+In the near future I will create a small React Native application that will enable a patient/client to export their Apple Health data to be served to the Howes Health web application server, making the application usable as a real world tool.
+ 
+## Screenshots
+<a href="https://youtu.be/GLRgLABFo7A" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-* System dependencies
+## Tech/framework used
+<b>Built with</b>
+- Ruby on Rails API
+- React.js (Redux/Hooks)
 
-* Configuration
+## Features
 
-* Database creation
 
-* Database initialization
+## Code Example
+Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
-* How to run the test suite
+## Installation
+Provide step by step series of examples and explanations about how to get a development env running.
 
-* Services (job queues, cache servers, search engines, etc.)
+## API Reference
 
-* Deployment instructions
+Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
-* ...
+## Tests
+Describe and show how to run the tests with code examples.
 
-# README React
+## How to use?
+If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contribute
 
-## Available Scripts
+Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
 
-In the project directory, you can run:
+## Credits
+Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project. 
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Anything else that seems useful
