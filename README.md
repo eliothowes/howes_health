@@ -20,27 +20,36 @@ alt="Screenshot of Howes Health Application" width="240" height="180" border="10
 - React.js (Redux/Hooks)
 
 ## Installation
+### Clone this repository
 ```bash
-# Clone this repository
 $ git clone https://github.com/eliothowes1090/howes_health.git
+```
 
-## Backend Setup
-# Go into the repository
+### Backend Setup
+#### Go into the repository
+```bash
 $ cd backend
 $ bundle install
 $ rails db:create db:migrate db:seed
 $ rails s
+```
 
 ## Frontend Setup
-# Go into the repository
+### Go into the repository
+```bash
 $ cd client
 # Install dependencies
 $ npm install
-
-# Run the app
-$ npm start
-# If you see the following: 'Would you like to run the app on another port instead?' select 'yes'
 ```
+
+## Run the app
+```bash
+$ npm start
+```
+### If you see the following: 'Would you like to run the app on another port instead?' select 'yes'
+
+## Other setup
+
 A few things to know about the seed data. The contacts (appointments) are hard coded to the current date so if you log in the day after you have seeded the database you will not see any patients. To fix this run the following command:
 
 ```bash 
