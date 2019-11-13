@@ -11,8 +11,8 @@ My motiviation for designing Howes Health was to bridge the gap between the data
 In the near future I will create a small React Native application that will enable a patient/client to export their Apple Health data to be served to the Howes Health web application server, making the application usable as a real world tool.
  
 ## Screenshots
-<a href="https://youtu.be/GLRgLABFo7A" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+<a href="https://youtu.be/GLRgLABFo7A" target="_blank"><img src="https://img.youtube.com/vi/GLRgLABFo7A/0.jpg" 
+alt="Screenshot of Howes Health Application" width="240" height="180" border="10" /></a>
 
 ## Tech/framework used
 <b>Built with</b>
