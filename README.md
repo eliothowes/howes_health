@@ -4,7 +4,7 @@ A unique, web based, clinical dashboard to allow healthcare professionals to int
 ## Motivation
 One of the biggest areas of change and focus in modern healthcare is the adoption and integration of digital technology. Having spent many years working in different healthcare settings I was amazed at how behind the health industry was in its use of digital technology and lack of available data for health professionals.
 
-Every day we collect hundreds if not thousands of pieces of health data about ourselves through out mobile devices and wearable health tech but we don't really utilise this data, let alone our healthcare clinicians.
+Every day we collect hundreds if not thousands of pieces of health data about ourselves through our mobile devices and wearable health tech but we don't really utilise this data, let alone our healthcare clinicians.
 
 My motiviation for designing Howes Health was to bridge the gap between the data we collect each day and utilisation of this in a healthcare setting.
 
