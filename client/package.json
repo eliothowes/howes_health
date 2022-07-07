@@ -6,7 +6,7 @@
     "@nivo/line": "^0.59.3",
     "@types/react-redux": "^7.1.4",
     "core-js": "^3.3.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
